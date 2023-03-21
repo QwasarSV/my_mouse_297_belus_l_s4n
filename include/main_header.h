@@ -8,13 +8,13 @@
 #include <stdbool.h>
 
 #include <my_string.h>
+#include <my_parser.h>
 #include <non_standard_header.h>
 #include <my_error_handler.h>
 #include <my_stack.h>
-#include <my_parser.h>
+#include <my_queue.h>
 #include <string.h>
 
-void free_bc(char** tokens, char** result, char* ptr);
-int my_bc(char** tokens,char** result, char* ptr);
+
 
 #endif

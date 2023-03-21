@@ -3,7 +3,7 @@
 
 #define ARG_SIZE            2
 #define ERR_MSG_MAX_ARG     "bad user arg"
-#define SIZE_ERR_MSG_MAX    30
+#define SIZE_ERR_MSG_MAX    13
 #define OVERFLOW            "OVERFLOWING\n"
 #define SIZE_OVERF          12
 #define UNDERFLOW           "UNDERFLOWING\n"
