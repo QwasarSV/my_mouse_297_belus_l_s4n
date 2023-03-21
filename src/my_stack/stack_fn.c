@@ -1,31 +1,33 @@
 #include <main_header.h>
 
 
-int push(stack_t stack, char* token)
+int push(stack_t* stack, char* token)
 {
-    if (stack.top > _SIZE_STACK_) 
+    printf("token is : %s \n", token);
+    if (stack->top > _SIZE_STACK_) 
     {
         write(STDERR_FILENO, OVERFLOW, SIZE_OVERF);
         return EXIT_FAILURE;
     }
-    free(stack.data[stack.top + 1]);
-    stack.data[++stack.top] = strdup(token);
+    free(stack->data[stack->top + 1]);
+    stack->data[++stack->top] = my_strdup(token);
+    print_stack(stack);
     return EXIT_SUCCESS;
 }
 
-char* pop(stack_t stack)
+char* pop(stack_t* stack)
 {
-    if (stack.top > _SIZE_STACK_) 
+    if (stack->top > _SIZE_STACK_) 
     {
         write(STDERR_FILENO, UNDERFLOW, SIZE_UNDERFLOW);
         return NULL;
     }
-    return stack.data[stack.top--];
+    return stack->data[stack->top--];
 }
 
-bool is_empty(stack_t stack)
+bool is_empty(stack_t* stack)
 {
-    if (stack.top == -1)
+    if (stack->top == -1)
     {
         return true;
     }
@@ -35,14 +37,13 @@ bool is_empty(stack_t stack)
     }
 }
 
-
-int print_stack(stack_t stack)
+int print_stack(stack_t* stack)
 {
-    printf("printing stack top is %i:", stack.top);
+    printf("Stack top is %i:", stack->top);
     int index = 0; 
-    while (index <= stack.top)
+    while (index <= stack->top)
     {
-        printf("|%s|",stack.data[index]);
+        printf("|%s|",stack->data[index]);
         index += 1;
     }
     printf("\n");
