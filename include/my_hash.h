@@ -14,8 +14,8 @@ struct hash
 typedef struct hash hash_t;
 #endif
 
-extern int         hash_string (char* str);
-extern int         my_pow(int val, int exp);
-extern void        clear_hash(hash_t* hash_table);
+extern int  create_hash (void* token);
+extern int  my_pow(int val, int exp);
+extern void clear_hash(hash_t* hash_table);
 
 #endif

@@ -1,6 +1,6 @@
 #include <main_header.h>
 
-int enqueue(queue_t* queue, char* token)
+int enqueue(queue_t* queue, void* token)
 {
     if (token == NULL)
     {
@@ -8,8 +8,7 @@ int enqueue(queue_t* queue, char* token)
     }
     if (queue->is_empty(&queue->s1))
     {
-        queue->front = my_strdup(token);
-        printf("enqueue front : %s \n", queue->front);
+        queue->front = token;
     }
     while (!queue->is_empty(&queue->s1))
     {
@@ -23,22 +22,22 @@ int enqueue(queue_t* queue, char* token)
     return EXIT_SUCCESS;
 }
 
-char* dequeue(queue_t* queue)
+void* dequeue(queue_t* queue)
 {
     if (queue->is_empty(&queue->s1))
     {
         printf("End of queue->\n");
         return NULL;
     }
-    char* val = my_strdup(queue->pop(&queue->s1));
+    void* val = queue->pop(&queue->s1);
     if (!queue->is_empty(&queue->s1))
     {
-        queue->front = my_strdup(queue->s1.data[queue->s1.top]);
+        queue->front = queue->s1.data[queue->s1.top];
     }
     return val;
 }
 
-char* peek(queue_t* queue)
+void* peek(queue_t* queue)
 {
     return queue->front;
 }
@@ -55,4 +54,10 @@ bool is_q_empty(queue_t* queue)
     {
         return false;
     }
+}
+
+void flush_queue(queue_t* queue)
+{
+    queue->flush_stack(&queue->s1);
+    queue->flush_stack(&queue->s2);
 }

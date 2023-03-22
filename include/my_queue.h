@@ -9,17 +9,19 @@ struct queue
 {
     stack_t s1;
     stack_t s2;
-    char*   front;
+    void*   front;
     bool    (*is_empty)(stack_t*);
-    int     (*push)(stack_t*, char*);
-    char*   (*pop)(stack_t*);
+    int     (*push)(stack_t*, void*);
+    void*   (*pop)(stack_t*);
+    void    (*flush_stack)(stack_t*);
 };
 typedef struct queue queue_t;
 #endif
 
-extern queue_t queue;
-
-int     enqueue(queue_t* queue, char* token);
-char*   dequeue(queue_t* queue);
+int     enqueue(queue_t* queue, void* token);
+void*   dequeue(queue_t* queue);
+void*   peek(queue_t* queue);
+bool    is_q_empty(queue_t* queue);
+void    flush_queue(queue_t* queue);
 
 #endif

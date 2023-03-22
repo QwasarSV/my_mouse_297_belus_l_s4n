@@ -3,7 +3,6 @@
 
 #include <main_header.h>
 
-
 #define _SIZE_STACK_ 250
 
 #ifndef __MY_STACK__
@@ -16,9 +15,9 @@ struct stack
 typedef struct stack stack_t;
 #endif
 
-int     push(stack_t* stack, char* token);
-char*   pop(stack_t* stack);
+int     push(stack_t* stack, void* token);
+void*   pop(stack_t* stack);
 bool    is_empty(stack_t* stack);
 int     print_stack(stack_t* stack);
-
+void    flush_stack(stack_t* stack);
 #endif

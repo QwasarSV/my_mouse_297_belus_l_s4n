@@ -1,9 +1,7 @@
 #include <main_header.h>
 
-
-int push(stack_t* stack, char* token)
+int push(stack_t* stack, void* token)
 {
-    printf("token is : %s \n", token);
     if (stack->top > _SIZE_STACK_) 
     {
         write(STDERR_FILENO, OVERFLOW, SIZE_OVERF);
@@ -11,11 +9,10 @@ int push(stack_t* stack, char* token)
     }
     free(stack->data[stack->top + 1]);
     stack->data[++stack->top] = my_strdup(token);
-    print_stack(stack);
     return EXIT_SUCCESS;
 }
 
-char* pop(stack_t* stack)
+void* pop(stack_t* stack)
 {
     if (stack->top > _SIZE_STACK_) 
     {
@@ -37,6 +34,14 @@ bool is_empty(stack_t* stack)
     }
 }
 
+void flush_stack(stack_t* stack)
+{
+    while(stack->top > 1)
+    {
+        free(stack->data[stack->top--]);
+    }
+}
+
 int print_stack(stack_t* stack)
 {
     printf("Stack top is %i:", stack->top);
@@ -48,3 +53,4 @@ int print_stack(stack_t* stack)
     }
     printf("\n");
 }
+
