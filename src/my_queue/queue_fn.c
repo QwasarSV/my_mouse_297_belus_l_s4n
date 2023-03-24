@@ -1,5 +1,18 @@
 #include <main_header.h>
 
+queue_t new_queue()
+{
+    queue_t queue = {
+        .s1 = {.top = -1},
+        .s2 = {.top = -1},
+        .front = NULL,
+        .is_empty = is_empty,
+        .push = push,
+        .pop = pop
+    };
+    return queue;
+}
+
 int enqueue(queue_t* queue, void* token)
 {
     if (token == NULL)

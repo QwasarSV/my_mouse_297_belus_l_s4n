@@ -9,7 +9,7 @@
 #define __MY_STACK__
 struct stack
 {
-    char* data[_SIZE_STACK_];
+    void* data[_SIZE_STACK_];
     int top;
 };
 typedef struct stack stack_t;
