@@ -1,30 +1,27 @@
 #ifndef __MY_BFS_HEADER_
 #define __MY_BFS_HEADER_
 
-#define ARG_SIZE            2
-#define ERR_MSG_MAX_ARG     "bad user arg"
-#define SIZE_ERR_MSG_MAX    13
-#define OVERFLOW            "OVERFLOWING\n"
-#define SIZE_OVERF          12
-#define UNDERFLOW           "UNDERFLOWING\n"
-#define SIZE_UNDERFLOW      13
+#define MAX_DIRECTION 4
 
-int     welcome_error(int val);
-
-
-
-#ifndef __NODE_
-#define __NODE_
-struct node
+#ifndef __CELL_
+#define __CELL_
+struct cell
 {
     int x;
     int y;
-    int xy[1];
+    int xy[2];
 };
-typedef struct node node_t;
+typedef struct cell cell_t;
 #endif
 
-int bfs(char** tokens, int* entrance, int* exit_);
+extern set_t*  visited;
+extern queue_t q;
 
+cell_t* set_node(int x, int y);
+bool    is_valid(int x, int y, grid_t* grid_attr);
+void    add_valid_node(int new_x, int new_y, grid_t* grid_attr);
+void    explore_grid(int x, int y, grid_t* grid_attr);
+int     bfs(grid_t* grid_attr, int* entrance, int* exit_);
+void    golden_path(grid_t* grid_attr);
 
 #endif

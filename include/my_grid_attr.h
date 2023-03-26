@@ -3,16 +3,15 @@
 
 #include <main_header.h>
 
-
-
 #ifndef GRID_STRUCT
 #define GRID_STRUCT
 struct data_struct
 {
-    char**  tokens;
     int     size;
-    int     entrance[1];
-    int     exit_[1];
+    char    obstacle;
+    int     entrance[2];
+    int     exit_[2];
+    char**  tokens;
 };
 typedef struct data_struct grid_t;
 #endif
@@ -22,6 +21,5 @@ int     get_size(char** tokens);
 int     index_of(char* str, char c);
 int*    get_coord(grid_t* grid_attr, int row, char ch);
 void    print_grid(char** grid);
-
 
 #endif
