@@ -15,7 +15,8 @@ void print_grid(char** grid)
     int index = 0;
     while (grid[index][0] != '\0')
     {
-        printf("row N %i: |%s|\n", index, grid[index]);
+        // printf("row N %i: |%s|\n", index, grid[index]);
+        printf("|%s|\n", grid[index]);
         index +=1;
     }
 }

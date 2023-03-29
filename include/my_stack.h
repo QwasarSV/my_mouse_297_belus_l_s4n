@@ -3,7 +3,7 @@
 
 #include <main_header.h>
 
-#define _SIZE_STACK_ 250
+#define _SIZE_STACK_ 101
 
 #ifndef __MY_STACK__
 #define __MY_STACK__

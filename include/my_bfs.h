@@ -1,15 +1,18 @@
 #ifndef __MY_BFS_HEADER_
 #define __MY_BFS_HEADER_
 
+#include <main_header.h>
+
 #define MAX_DIRECTION 4
 
 #ifndef __CELL_
 #define __CELL_
 struct cell
 {
-    int x;
-    int y;
-    int xy[2];
+    int     x;
+    int     y;
+    int     xy[2];
+    struct cell* next;
 };
 typedef struct cell cell_t;
 #endif
@@ -17,11 +20,11 @@ typedef struct cell cell_t;
 extern set_t*  visited;
 extern queue_t q;
 
-cell_t* set_node(int x, int y);
+cell_t* set_cell(int x, int y, cell_t* next);
 bool    is_valid(int x, int y, grid_t* grid_attr);
-void    add_valid_node(int new_x, int new_y, grid_t* grid_attr);
-void    explore_grid(int x, int y, grid_t* grid_attr);
+void    add_valid_cell(int new_x, int new_y, grid_t* grid_attr, cell_t* next);
+void    explore_grid(int x, int y, grid_t* grid_attr, cell_t* next);
 int     bfs(grid_t* grid_attr, int* entrance, int* exit_);
-void    golden_path(grid_t* grid_attr);
-
+void    golden_path(grid_t* grid_attr, cell_t* exit_cell);
+void    flush_path();
 #endif

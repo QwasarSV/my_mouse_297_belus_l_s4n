@@ -11,5 +11,4 @@
 
 int     welcome_error(int val);
 
-
 #endif
