@@ -8,10 +8,13 @@
 struct data_struct
 {
     int     size;
+    int     len;
     char    obstacle;
     int     entrance[2];
     int     exit_[2];
+    int     current_cid;
     char**  tokens;
+    int     cnt_cell;
 };
 typedef struct data_struct grid_t;
 #endif

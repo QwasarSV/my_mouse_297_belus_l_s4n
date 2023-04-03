@@ -8,7 +8,10 @@
 #define SIZE_OVERF          12
 #define UNDERFLOW           "UNDERFLOWING\n"
 #define SIZE_UNDERFLOW      13
-
+#define MEM_POOL_ALLOC      "Cannot allocate memory pool\n"
+#define SIZE_MSG_ALLOC      28
+#define MEM_POOL_SPACE      "Mem pool has no more space\n"
+#define SIZE_MSG_SPACE      27
 int     welcome_error(int val);
 
 #endif

@@ -68,9 +68,3 @@ bool is_q_empty(queue_t* queue)
         return false;
     }
 }
-
-void flush_queue(queue_t* queue)
-{
-    queue->flush_stack(&queue->s1);
-    queue->flush_stack(&queue->s2);
-}

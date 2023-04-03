@@ -3,7 +3,7 @@
 
 #include <main_header.h>
 
-#define TABLE_SIZE 1000
+#define TABLE_SIZE 10000
 
 #ifndef __MY_HASH__
 #define __MY_HASH__

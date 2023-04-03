@@ -19,5 +19,5 @@ int     push(stack_t* stack, void* token);
 void*   pop(stack_t* stack);
 bool    is_empty(stack_t* stack);
 int     print_stack(stack_t* stack);
-void    flush_stack(stack_t* stack);
+
 #endif

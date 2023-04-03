@@ -44,15 +44,3 @@ int print_stack(stack_t* stack)
     }
     printf("\n");
 }
-
-
-
-void flush_stack(stack_t* stack)
-{
-    while(stack->top > 1)
-    {
-        free(stack->data[stack->top--]);
-    }
-}
-
-
